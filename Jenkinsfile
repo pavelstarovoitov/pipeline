@@ -56,7 +56,7 @@ passwordVariable: 'DOCKERHUB_PASSWORD')]) {
                         } else {
                             sh "docker container rm -f ${skipdel}"
                         }
-                        sh " docker system prune"
+                        sh " echo 'y' | docker system prune"
                         sh "docker run -d --name mynginx -p 80:80 -p 443:443 ${registry}${IMAGE_NAME}:${BUILD_NUMBER}"
                     }
           }
